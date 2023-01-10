@@ -1,1 +1,743 @@
-print("e")
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name ~= "wallsegment" and v.Name ~= "wall" and v.Name ~= "walls" and v.Name ~= "building" and v.Name ~= "outlines" then continue end
+        for i,x in pairs(v:GetDescendants()) do
+            if x:IsA("Part") then
+            x.Material = "Concrete"
+        end
+    end
+end
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name ~= "a_walls" and v.Name ~= "a_front" and v.Name ~= "Floor" and v.Name ~= "b_wall" and v.Name ~= "b_front" and v.Name ~= "c_wall" and v.Name ~= "a_outerwall" and v.Name ~= "b_outerwall" and v.Name ~= "stairs" then continue end
+        for i,x in pairs(v:GetDescendants()) do
+            if x:IsA("Part") then
+            x.Material = "Concrete"
+        end
+    end
+end 
+for i,v in pairs(game:GetService("Workspace")["Prison_Cellblock"]:GetDescendants()) do
+    if v.Name ~= "c_corner" and v.Name ~= "c_hallwall" and v.Name ~= "a_ceiling" and v.Name ~= "b_ceiling" then continue end
+    v.Material = "Concrete"
+end
+
+-- Terrain
+for i,v in pairs(game:GetService("Workspace")["GAME_TERRAIN"]:GetDescendants()) do
+    if v.Name ~= "Ground" and v.Name ~= "Floor" and v.Name ~= "Part" and v.Name ~= "Wedge" and v.Name ~= "Grass" then continue end
+    v.Material = "Grass"
+    v.BrickColor = BrickColor.new("Camo")
+end
+for i,v in pairs(game:GetService("Workspace").Trees:GetDescendants()) do
+    if v.Name ~= "MeshPart" then continue end
+    v.Material = "Grass"
+    v.BrickColor = BrickColor.new("Dark green")
+end
+for i,v in pairs(game:GetService("Workspace").Trees:GetDescendants()) do
+    if v.Name ~= "Part" then continue end
+    v.Material = "Wood"
+    v.BrickColor = BrickColor.new("Dirt brown")
+end
+
+-- Guard Spawn
+for i,v in pairs(game:GetService("Workspace")["Prison_guardspawn"]:GetDescendants()) do
+    if v.Name ~= "spawn" then continue end
+    v.Transparency = 1
+end
+
+-- Criminals Spawn
+for i,v in pairs(game:GetService("Workspace")["Criminals Spawn"]:GetDescendants()) do
+    if v.Name ~= "SpawnLocation" then continue end
+    v.Transparency = 1
+end
+
+-- Button Fixes
+for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons["Garage Buttons"]:GetDescendants()) do
+    if v:IsA("Part") then
+        v.Material = "SmoothPlastic"
+        v.Shape = "Cylinder"
+    end
+end
+
+-- Chairs
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name ~= "ChairRow" then continue end
+        for i,x in pairs(v:GetDescendants()) do
+            if x:IsA("Part") then
+            x.Material = "Wood"
+            x.BrickColor = BrickColor.new("Brown")
+        end
+    end
+end
+
+-- Replaced Benches
+local Benches = Instance.new("Model")
+local bench1 = Instance.new("Model")
+local bench2 = Instance.new("Model")
+local part1 = Instance.new("Part")
+local part2 = Instance.new("Part")
+local part3 = Instance.new("Part")
+local part4 = Instance.new("Part")
+local part5 = Instance.new("Part")
+local part6 = Instance.new("Part")
+local part7 = Instance.new("Part")
+local part8 = Instance.new("Part")
+local seat1 = Instance.new("Seat")
+local seat2 = Instance.new("Seat")
+local seat3 = Instance.new("Seat")
+local seat4 = Instance.new("Seat")
+local seat5 = Instance.new("Seat")
+local seat6 = Instance.new("Seat")
+--Benches
+Benches.Parent = Workspace
+Benches.Name = "Benches"
+--Bench 1
+bench1.Parent = Benches
+bench1.Name = "Bench1"
+part1.Parent = bench1
+part1.Size = Vector3.new(13, 0.4, 2.791)
+part1.BrickColor = BrickColor.new("Brown")
+part1.Material = "Wood"
+part1.CFrame = CFrame.new(776.6, 96.6, 2520.495)
+part1.Anchored = true
+part2.Parent = bench1
+part2.Size = Vector3.new(0.4, 3, 3.188)
+part2.BrickColor = BrickColor.new("Brown")
+part2.Material = "Wood"
+part2.CFrame = CFrame.new(769.9, 95.9, 2520.293)
+part2.Anchored = true
+part3.Parent = bench1
+part3.Size = Vector3.new(13, 3, 0.4)
+part3.BrickColor = BrickColor.new("Brown")
+part3.Material = "Wood"
+part3.CFrame = CFrame.new(776.6, 95.9, 2518.899)
+part3.Anchored = true
+part4.Parent = bench1
+part4.Size = Vector3.new(0.4, 2.435, 3.204)
+part4.BrickColor = BrickColor.new("Brown")
+part4.Material = "Wood"
+part4.CFrame = CFrame.new(783.3, 96.183, 2520.302)
+part4.Anchored = true
+
+-- Bench 2
+bench2.Parent = Benches
+bench2.Name = "Bench2"
+part5.Parent = bench2
+part5.Size = Vector3.new(13, 0.4, 2.791)
+part5.BrickColor = BrickColor.new("Brown")
+part5.Material = "Wood"
+part5.CFrame = CFrame.new(810.6, 96.6, 2520.495)
+part5.Anchored = true
+part6.Parent = bench2
+part6.Size = Vector3.new(0.4, 3, 3.188)
+part6.BrickColor = BrickColor.new("Brown")
+part6.Material = "Wood"
+part6.CFrame = CFrame.new(803.9, 95.9, 2520.293)
+part6.Anchored = true
+part7.Parent = bench2
+part7.Size = Vector3.new(13, 3, 0.4)
+part7.BrickColor = BrickColor.new("Brown")
+part7.Material = "Wood"
+part7.CFrame = CFrame.new(810.6, 95.9, 2518.899)
+part7.Anchored = true
+part8.Parent = bench2
+part8.Size = Vector3.new(0.4, 2.435, 3.204)
+part8.BrickColor = BrickColor.new("Brown")
+part8.Material = "Wood"
+part8.CFrame = CFrame.new(817.3, 96.183, 2520.302)
+part8.Anchored = true
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name ~= "bench"then continue end
+        for i,x in pairs(v:GetDescendants()) do
+            if x:IsA("Seat") then
+                x.Parent = game.Workspace.Benches
+            end
+        end
+end
+for i,v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name ~= "bench"then continue end
+    v:Destroy()
+end
+
+-- Armory
+local GlassTable = Instance.new("Model")
+local glass = Instance.new("Part")
+local side1 = Instance.new("Part")
+local side2 = Instance.new("Part")
+local side3 = Instance.new("Part")
+local side4 = Instance.new("Part")
+local leg1 = Instance.new("Part")
+local leg2 = Instance.new("Part")
+local leg3 = Instance.new("Part")
+local leg4 = Instance.new("Part")
+GlassTable.Parent = workspace
+GlassTable.Name = "Glass Table"
+glass.Parent = GlassTable
+glass.Size = Vector3.new(6.199, 0.2, 6.205)
+glass.BrickColor = BrickColor.new("Electric blue")
+glass.Material = "Glass"
+glass.Transparency = 0.6
+glass.CFrame = CFrame.new(789.401, 100.3, 2272.593)
+glass.Anchored = true
+side1.Parent = GlassTable
+side1.Size = Vector3.new(6.207, 0.2, 0.997)
+side1.BrickColor = BrickColor.new("Smoky grey")
+side1.Material = "Marble"
+side1.CFrame = CFrame.new(789.401, 100.3, 2276.192)
+side1.Anchored = true
+side2.Parent = GlassTable
+side2.Size = Vector3.new(1, 0.2, 8.198)
+side2.BrickColor = BrickColor.new("Smoky grey")
+side2.Material = "Marble"
+side2.CFrame = CFrame.new(785.799, 100.3, 2272.592)
+side2.Anchored = true
+side3.Parent = GlassTable
+side3.Size = Vector3.new(6.207, 0.2, 0.997)
+side3.BrickColor = BrickColor.new("Smoky grey")
+side3.Material = "Marble"
+side3.CFrame = CFrame.new(789.401, 100.3, 2268.997)
+side3.Anchored = true
+side4.Parent = GlassTable
+side4.Size = Vector3.new(1, 0.194, 8.198)
+side4.BrickColor = BrickColor.new("Smoky grey")
+side4.Material = "Marble"
+side4.CFrame = CFrame.new(792.999, 100.297, 2272.594)
+side4.Anchored = true
+leg1.Parent = GlassTable
+leg1.Size = Vector3.new(0.3, 3.2, 0.3)
+leg1.BrickColor = BrickColor.new("Institutional white")
+leg1.Material = "Metal"
+leg1.CFrame = CFrame.new(785.499, 98.6, 2276.493)
+leg1.Anchored = true
+leg2.Parent = GlassTable
+leg2.Size = Vector3.new(0.3, 3.203, 0.3)
+leg2.BrickColor = BrickColor.new("Institutional white")
+leg2.Material = "Metal"
+leg2.CFrame = CFrame.new(785.499, 98.601, 2268.693)
+leg2.Anchored = true
+leg3.Parent = GlassTable
+leg3.Size = Vector3.new(0.3, 3.206, 0.3)
+leg3.BrickColor = BrickColor.new("Institutional white")
+leg3.Material = "Metal"
+leg3.CFrame = CFrame.new(793.299, 98.603, 2268.693)
+leg3.Anchored = true
+leg4.Parent = GlassTable
+leg4.Size = Vector3.new(0.3, 3.204, 0.3)
+leg4.BrickColor = BrickColor.new("Institutional white")
+leg4.Material = "Metal"
+leg4.CFrame = CFrame.new(793.299, 98.602, 2276.493)
+leg4.Anchored = true
+for _, v in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"]["furniture_kitchen"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.Color == Color3.fromRGB(204, 142, 105) then
+            v:Destroy()
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"]["furniture_kitchen"]["Prison_Guardtable"]:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(27, 42, 53) then
+        Part.BrickColor = BrickColor.new("Institutional white")
+        Part.Material = "Metal"
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"]:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(204, 142, 105) then
+        Part.BrickColor = BrickColor.new("Electric blue")
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"].window:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(133, 167, 179) then
+        Part.BrickColor = BrickColor.new("Electric blue")
+        Part.Transparency = 0.6
+        Part.Material = "Glass"
+        end
+    end
+end
+game:GetService("Workspace")["Prison_Cafeteria"].building:Destroy()
+
+-- Cafeteria
+local Cafe = Instance.new("Model")
+local part1 = Instance.new("Part")
+local part2 = Instance.new("Part")
+local part3 = Instance.new("Part")
+local part4 = Instance.new("Part")
+local part5 = Instance.new("Part")
+local part6 = Instance.new("Part")
+local part7 = Instance.new("Part")
+local part8 = Instance.new("Part")
+local part9 = Instance.new("Part")
+local part10 = Instance.new("Part")
+local part11 = Instance.new("Part")
+local part12 = Instance.new("Part")
+local part13 = Instance.new("Part")
+local part14 = Instance.new("Part")
+local part15 = Instance.new("Part")
+local part16 = Instance.new("Part")
+local part17 = Instance.new("Part")
+local part18 = Instance.new("Part")
+local part19 = Instance.new("Part")
+local part20 = Instance.new("Part")
+local part21 = Instance.new("Part")
+local part22 = Instance.new("Part")
+local part23 = Instance.new("Part")
+local part24 = Instance.new("Part")
+local part25 = Instance.new("Part")
+local part26 = Instance.new("Part")
+local part27 = Instance.new("Part")
+local part28 = Instance.new("Part")
+local part29 = Instance.new("Part")
+local part30 = Instance.new("Part")
+local part31 = Instance.new("Part")
+Cafe.Parent = game:GetService("Workspace")["Prison_Cafeteria"]
+Cafe.Name = "building"
+part1.Parent = Cafe
+part1.Size = Vector3.new(137, 2, 3)
+part1.BrickColor = BrickColor.new("Ghost grey")
+part1.Material = "Concrete"
+part1.CFrame = CFrame.new(967.3, 125.99, 2276.096)
+part1.Orientation = Vector3.new(0, -90, 0)
+part1.Anchored = true
+part2.Parent = Cafe
+part2.Size = Vector3.new(43, 5, 2)
+part2.BrickColor = BrickColor.new("Ghost grey")
+part2.Material = "Concrete"
+part2.CFrame = CFrame.new(866.8, 121.49, 2227.096)
+part2.Orientation = Vector3.new(0, -90, 0)
+part2.Anchored = true
+part3.Parent = Cafe
+part3.Size = Vector3.new(139, 2, 3)
+part3.BrickColor = BrickColor.new("Ghost grey")
+part3.Material = "Concrete"
+part3.CFrame = CFrame.new(866.3, 125.99, 2275.096)
+part3.Orientation = Vector3.new(0, -90, 0)
+part3.Anchored = true
+part4.Parent = Cafe
+part4.Size = Vector3.new(137, 2, 2)
+part4.BrickColor = BrickColor.new("Ghost grey")
+part4.Material = "Concrete"
+part4.CFrame = CFrame.new(966.8, 117.99, 2276.096)
+part4.Orientation = Vector3.new(0, -90, 0)
+part4.Anchored = true
+part5.Parent = Cafe
+part5.Size = Vector3.new(3, 2, 104)
+part5.BrickColor = BrickColor.new("Ghost grey")
+part5.Material = "Concrete"
+part5.CFrame = CFrame.new(916.8, 125.99, 2206.096)
+part5.Orientation = Vector3.new(0, -90, 0)
+part5.Anchored = true
+part6.Parent = Cafe
+part6.Size = Vector3.new(2, 9.4, 42)
+part6.BrickColor = BrickColor.new("Ghost grey")
+part6.Material = "Concrete"
+part6.CFrame = CFrame.new(916.8, 114.29, 2345.6)
+part6.Orientation = Vector3.new(0, -90, 0)
+part6.Anchored = true
+part7.Parent = Cafe
+part7.Size = Vector3.new(2, 20, 30)
+part7.BrickColor = BrickColor.new("Ghost grey")
+part7.Material = "Concrete"
+part7.CFrame = CFrame.new(880.8, 108.99, 2345.6)
+part7.Orientation = Vector3.new(0, -90, 0)
+part7.Anchored = true
+part8.Parent = Cafe
+part8.Size = Vector3.new(139, 3, 2)
+part8.BrickColor = BrickColor.new("Ghost grey")
+part8.Material = "Concrete"
+part8.CFrame = CFrame.new(866.8, 123.49, 2275.096)
+part8.Orientation = Vector3.new(0, -90, 0)
+part8.Anchored = true
+part9.Parent = Cafe
+part9.Size = Vector3.new(2, 26, 15)
+part9.BrickColor = BrickColor.new("Ghost grey")
+part9.Material = "Concrete"
+part9.CFrame = CFrame.new(960.3, 111.99, 2206.596)
+part9.Orientation = Vector3.new(0, -90, 0)
+part9.Anchored = true
+part10.Parent = Cafe
+part10.Size = Vector3.new(2, 20, 30)
+part10.BrickColor = BrickColor.new("Ghost grey")
+part10.Material = "Concrete"
+part10.CFrame = CFrame.new(952.8, 108.99, 2345.6)
+part10.Orientation = Vector3.new(0, -90, 0)
+part10.Anchored = true
+part11.Parent = Cafe
+part11.Size = Vector3.new(2, 9, 15)
+part11.BrickColor = BrickColor.new("Ghost grey")
+part11.Material = "Concrete"
+part11.CFrame = CFrame.new(875.3, 103.49, 2243.596)
+part11.Orientation = Vector3.new(0, 90, 0)
+part11.Anchored = true
+part12.Parent = Cafe
+part12.Size = Vector3.new(2, 3, 102)
+part12.BrickColor = BrickColor.new("Ghost grey")
+part12.Material = "Concrete"
+part12.CFrame = CFrame.new(916.8, 123.49, 2345.6)
+part12.Orientation = Vector3.new(0, -90, 0)
+part12.Anchored = true
+part13.Parent = Cafe
+part13.Size = Vector3.new(2, 9, 20)
+part13.BrickColor = BrickColor.new("Ghost grey")
+part13.Material = "Concrete"
+part13.CFrame = CFrame.new(955.8, 103.49, 2243.596)
+part13.Orientation = Vector3.new(0, 90, 0)
+part13.Anchored = true
+part14.Parent = Cafe
+part14.Size = Vector3.new(2, 9, 2)
+part14.BrickColor = BrickColor.new("Ghost grey")
+part14.Material = "Concrete"
+part14.CFrame = CFrame.new(939.8, 103.49, 2243.596)
+part14.Orientation = Vector3.new(0, 90, 0)
+part14.Anchored = true
+part15.Parent = Cafe
+part15.Size = Vector3.new(2, 28, 77)
+part15.BrickColor = BrickColor.new("Ghost grey")
+part15.Material = "Concrete"
+part15.CFrame = CFrame.new(906.3, 112.99, 2206.596)
+part15.Orientation = Vector3.new(0, -90, 0)
+part15.Anchored = true
+part16.Parent = Cafe
+part16.Size = Vector3.new(2, 4, 5)
+part16.BrickColor = BrickColor.new("Ghost grey")
+part16.Material = "Concrete"
+part16.CFrame = CFrame.new(943.3, 105.99, 2243.596)
+part16.Orientation = Vector3.new(0, 90, 0)
+part16.Anchored = true
+part17.Parent = Cafe
+part17.Size = Vector3.new(2, 10.4, 18)
+part17.BrickColor = BrickColor.new("Ghost grey")
+part17.Material = "Concrete"
+part17.CFrame = CFrame.new(885.8, 113.79, 2345.6)
+part17.Orientation = Vector3.new(0, -90, 0)
+part17.Anchored = true
+part18.Parent = Cafe
+part18.Size = Vector3.new()
+part18.BrickColor = BrickColor.new("Ghost grey")
+part18.Material = "Concrete"
+part18.CFrame = CFrame.new()
+part18.Orientation = Vector3.new()
+part18.Anchored = true
+part19.Parent = Cafe
+part19.Size = Vector3.new(41, 5, 2)
+part19.BrickColor = BrickColor.new("Ghost grey")
+part19.Material = "Concrete"
+part19.CFrame = CFrame.new(966.8, 121.49, 2228.096)
+part19.Orientation = Vector3.new(0, -90, 0)
+part19.Anchored = true
+part20.Parent = Cafe
+part20.Size = Vector3.new(2, 0.2, 5.6)
+part20.BrickColor = BrickColor.new("Ghost grey")
+part20.Material = "Concrete"
+part20.CFrame = CFrame.new(897.1, 126.89, 2243.596)
+part20.Orientation = Vector3.new(0, 90, 0)
+part20.Anchored = true
+part21.Parent = Cafe
+part21.Size = Vector3.new(2, 0.2, 5.6)
+part21.BrickColor = BrickColor.new("Ghost grey")
+part21.Material = "Concrete"
+part21.CFrame = CFrame.new(897.1, 126.89, 2206.596)
+part21.Orientation = Vector3.new(0, -90, 0)
+part21.Anchored = true
+part22.Parent = Cafe
+part22.Size = Vector3.new(137, 3, 2)
+part22.BrickColor = BrickColor.new("Ghost grey")
+part22.Material = "Concrete"
+part22.CFrame = CFrame.new(966.8, 123.49, 2276.096)
+part22.Orientation = Vector3.new(0, -90, 0)
+part22.Anchored = true
+part23.Parent = Cafe
+part23.Size = Vector3.new()
+part23.BrickColor = BrickColor.new("Ghost grey")
+part23.Material = "Concrete"
+part23.CFrame = CFrame.new()
+part23.Orientation = Vector3.new()
+part23.Anchored = true
+part24.Parent = Cafe
+part24.Size = Vector3.new(3, 2, 104)
+part24.BrickColor = BrickColor.new("Ghost grey")
+part24.Material = "Concrete"
+part24.CFrame = CFrame.new(916.8, 125.99, 2346.1)
+part24.Orientation = Vector3.new(0, -90, 0)
+part24.Anchored = true
+part25.Parent = Cafe
+part25.Size = Vector3.new(2, 23, 8)
+part25.BrickColor = BrickColor.new("Ghost grey")
+part25.Material = "Concrete"
+part25.CFrame = CFrame.new(948.8, 115.49, 2206.596)
+part25.Orientation = Vector3.new(0, -90, 0)
+part25.Anchored = true
+part26.Parent = Cafe
+part26.Size = Vector3.new(2, 19, 98.1)
+part26.BrickColor = BrickColor.new("Ghost grey")
+part26.Material = "Concrete"
+part26.CFrame = CFrame.new(916.75, 117.49, 2243.596)
+part26.Orientation = Vector3.new(0, 90, 0)
+part26.Anchored = true
+part27.Parent = Cafe
+part27.Size = Vector3.new(2, 18, 137)
+part27.BrickColor = BrickColor.new("Ghost grey")
+part27.Material = "Concrete"
+part27.CFrame = CFrame.new(966.8, 107.99, 2276.096)
+part27.Orientation = Vector3.new(0, 180, 0)
+part27.Anchored = true
+part28.Parent = Cafe
+part28.Size = Vector3.new(2, 20, 105.223)
+part28.BrickColor = BrickColor.new("Ghost grey")
+part28.Material = "Concrete"
+part28.CFrame = CFrame.new(866.8, 108.99, 2258.096)
+part28.Orientation = Vector3.new(0, 180, 0)
+part28.Anchored = true
+part29.Parent = Cafe
+part29.Size = Vector3.new(2, 11, 34)
+part29.BrickColor = BrickColor.new("Ghost grey")
+part29.Material = "Concrete"
+part29.CFrame = CFrame.new(866.8, 113.49, 2327.596)
+part29.Orientation = Vector3.new(0, 180, 0)
+part29.Anchored = true
+part30.Parent = Cafe
+part30.Size = Vector3.new(2, 9, 4)
+part30.BrickColor = BrickColor.new("Ghost grey")
+part30.Material = "Concrete"
+part30.CFrame = CFrame.new(866.8, 103.49, 2342.596)
+part30.Orientation = Vector3.new(0, 180, 0)
+part30.Anchored = true
+part31.Parent = Cafe
+part31.Size = Vector3.new(2, 1, 30)
+part31.BrickColor = BrickColor.new("Ghost grey")
+part31.Material = "Concrete"
+part31.CFrame = CFrame.new(866.8, 99.49, 2325.596)
+part31.Orientation = Vector3.new(0, 180, 0)
+part31.Anchored = true
+
+-- Front
+for _, Part in pairs(game:GetService("Workspace")["Prison_Administration"].front:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(9, 137, 207) then
+            Part.Material = "Glass"
+        end
+        if Part.Color == Color3.fromRGB(128, 187, 219) then
+            Part.Material = "Glass"
+        end
+        if Part.Color == Color3.fromRGB(202, 203, 209) then
+            Part.Material = "Concrete"
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Administration"].front:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(27, 42, 53) then
+            Part.Material = "Glass"
+        end
+    end
+end
+for _, v in pairs(game:GetService("Workspace")["Prison_Administration"]:GetDescendants()) do
+    if v:IsA("Model") then
+        for _, x in pairs(v:GetDescendants()) do
+            if x:IsA("Part") then
+                if x.Color == Color3.fromRGB(27, 42, 53) then
+                    x.Material = "Glass"
+                    x.BrickColor = BrickColor.new("Electric blue")
+                end
+            end
+        end
+    end
+end
+
+-- Parking Lot
+for i,v in pairs(game:GetService("Workspace")["Prison_Parking"]:GetDescendants()) do
+    if v:IsA("Part") then
+        v.Material = "Ground"
+        v.BrickColor = BrickColor.new("New Yeller")
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_road"]:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(27, 42, 53) then
+            Part.Material = "Rock"
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace").mainRoads:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(27, 42, 53) then
+            Part.Material = "Rock"
+        end
+    end
+end
+game:GetService("Workspace").SideRoad.Material = "Mud"
+for _, Part in pairs(game:GetService("Workspace")["Town_ParkingLot"]:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(99, 95, 98) then
+            Part.BrickColor = BrickColor.new("Black")
+            Part.Material = "Rock"
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_OuterWall"]["prison_wall"].Model:GetDescendants()) do
+    if v:IsA("Part") then
+        v.BrickColor = BrickColor.new("Electric blue")
+        v.Material = "Glass"
+        v.Transparency = 0.6
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_Halls"].glass:GetDescendants()) do
+    if v:IsA("Part") then
+        v.BrickColor = BrickColor.new("Electric blue")
+        v.Material = "Glass"
+        v.Transparency = 0.6
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"].doorwindow:GetDescendants()) do
+    if v:IsA("Decal") then
+        v:Destroy()
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Guard_Outpost"].doorwindow:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(128, 187, 219) then
+            Part.BrickColor = BrickColor.new("Electric blue")
+            Part.Material = "Glass"
+            Part.Transparency = 0.6
+        end
+    end
+end
+for i,v in pairs(workspace:GetDescendants()) do
+    if v.Name ~= "vending machine" then continue end
+    for i,x in pairs(v:GetDescendants()) do
+        if x.Name ~= "outoforder" then continue end
+        for i, y in pairs(x:GetDescendants()) do
+            if y:IsA("Part") then
+                y:Destroy()
+            end
+        end
+    end
+end
+for i,v in pairs(workspace:GetDescendants()) do
+    if v.Name ~= "vending machine" then continue end
+    for i,x in pairs(v:GetDescendants()) do
+        if x:IsA("Part") then
+            if x.BrickColor == BrickColor.new("Light blue") then
+                x.Material = "Glass"
+                x.BrickColor = BrickColor.new("Electric blue")
+                x.Transparency = 0.6
+            end
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Cafeteria"]:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(180, 210, 228) then
+            Part.BrickColor = BrickColor.new("Electric blue")
+            Part.Material = "Glass"
+            Part.Transparency = 0.6
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Cafeteria"].Model:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(128, 187, 219) then
+            Part.BrickColor = BrickColor.new("Electric blue")
+            Part.Material = "Glass"
+            Part.Transparency = 0.6
+        end
+    end
+end
+for _, Part in pairs(game:GetService("Workspace")["Prison_Cafeteria"].glass:GetDescendants()) do
+    if Part:IsA("Part") then
+        if Part.Color == Color3.fromRGB(128, 187, 219) then
+            Part.BrickColor = BrickColor.new("Electric blue")
+            Part.Material = "Glass"
+            Part.Transparency = 0.6
+        end
+        if Part.Color == Color3.fromRGB(27, 42, 53) then
+            Part.BrickColor = BrickColor.new("Electric blue")
+            Part.Material = "Glass"
+            Part.Transparency = 0.6
+        end
+    end
+end
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Model") then
+        for i,x in pairs(v:GetDescendants()) do
+            if x.Name ~= "paths" then continue end
+            for i,y in pairs(x:GetDescendants()) do
+                if y.Name ~= "track" then continue end
+                for i,z in pairs(y:GetDescendants()) do
+                    if z:IsA("Part") then
+                        z.BrickColor = BrickColor.new("Burnt Sienna")
+                        z.Material = "Mud"
+                    end
+                end
+            end
+        end
+    end
+end
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Model") then
+        for i,x in pairs(v:GetDescendants()) do
+            if x.Name ~= "paths" then continue end
+            for i,y in pairs(x:GetDescendants()) do
+                if y.Name ~= "side_path" then continue end
+                for i,z in pairs(y:GetDescendants()) do
+                    if z:IsA("Part") then
+                        z.BrickColor = BrickColor.new("Medium red")
+                        z.Material = "Pavement"
+                    end
+                end
+            end
+        end
+    end
+end
+local part1 = Instance.new("Part")
+local part2 = Instance.new("Part")
+part1.Parent = workspace
+part1.Size = Vector3.new(1.035, 0.05, 7.995)
+part1.CFrame = CFrame.new(794.323, 95.015, 2185.402)
+part1.BrickColor = BrickColor.new("Medium red")
+part1.Material = "Pavement"
+part1.Anchored = true
+part2.Parent = workspace
+part2.Size = Vector3.new(6.016, 0.05, 22.351)
+part2.CFrame = CFrame.new(790.818, 95.015, 2178.224)
+part2.BrickColor = BrickColor.new("Medium red")
+part2.Material = "Pavement"
+part2.Anchored = true
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Model") then
+        for i,x in pairs(v:GetDescendants()) do
+            if x.Name ~= "bleachers" then continue end
+            for i,y in pairs(x:GetDescendants()) do
+                if y:IsA("Model") then
+                    for i,z in pairs(y:GetDescendants()) do
+                        if z:IsA("Part") then
+                            if z.BrickColor == BrickColor.new("Oyster") then
+                                z.Material = "DiamondPlate"
+                                else
+                                    z.Material = "Metal"
+                                    z.BrickColor = BrickColor.new("Medium stone grey")
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+for i,v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Model") then
+        for i,x in pairs(v:GetDescendants()) do
+            if x.Name ~= "paths" then continue end
+            for i,y in pairs(x:GetDescendants()) do
+                if y.Parent.Name ~= "track" then
+                    if y.Name == "c_floor" then
+                        if y:IsA("Part") then
+                            y.BrickColor = BrickColor.new("Medium red")
+                            y.Material = "Pavement"
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
