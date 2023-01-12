@@ -741,3 +741,85 @@ for i,v in pairs(workspace:GetDescendants()) do
         end
     end
 end
+-- Criminal Base
+for i,v in pairs(game:GetService("Workspace").Warehouses:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.Name == "gate" then
+            if v.BrickColor == BrickColor.new("Medium stone grey") then
+                v:Destroy()
+            end
+            if v:IsA("Part") then
+                if v.Name == "gate" then
+                    if v.BrickColor == BrickColor.new("Dark stone grey") then
+                        v:Destroy()
+                    end
+                end
+            end
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace").Warehouses.Warehouse1:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.BrickColor == BrickColor.new("Pastel light blue") then
+            v.Material = "Glass"
+            v.BrickColor = BrickColor.new("Electric blue")
+            v.Transparency = 0.6
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace").Warehouses:GetDescendants()) do
+    if v.Name ~= "Warehouse2" then continue end
+        for i,x in pairs(v:GetDescendants()) do
+            if x:IsA("Part") then
+                if x.BrickColor == BrickColor.new("Sand blue") then
+                x.Material = "Glass"
+                x.BrickColor = BrickColor.new("Electric blue")
+                x.Transparency = 0.6
+            end
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Town_Sideroad"]:GetDescendants()) do
+    if v:IsA("Part") then
+        v.BrickColor = BrickColor.new("Black")
+        v.Material = "Rock"
+    end
+end
+--
+for i,v in pairs(game:GetService("Workspace")["Prison_Cafeteria"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.Name ~= "floor" then continue end
+            if v.BrickColor == BrickColor.new("Smoky grey") then
+            v.BrickColor = BrickColor.new("White")
+            v.Material = "SmoothPlastic"
+        end
+    end
+end
+game:GetService("Workspace")["Prison_Cellblock"]["c_glass"].BrickColor = BrickColor.new("Electric blue") game:GetService("Workspace")["Prison_Cellblock"]["c_glass"].Material = "Glass" game:GetService("Workspace")["Prison_Cellblock"]["c_glass"].Transparency = 0.6
+for i,v in pairs(game:GetService("Workspace")["Prison_Administration"].stairs:GetDescendants()) do
+    if v:IsA("Part") then
+        v.BrickColor = BrickColor.new("Medium stone grey")
+    end
+end
+for i,v in pairs(game:GetService("Workspace").stairs:GetDescendants()) do
+    if v:IsA("Part") then
+        v.BrickColor = BrickColor.new("Medium stone grey")
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_Cafeteria"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.Name ~= "floor" then continue end
+        if v.BrickColor == BrickColor.new("Cloudy grey") then
+            v.BrickColor = BrickColor.new("Medium stone grey")
+            v.Material = "Concrete"
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_Cafeteria"]["Prison_table1"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.BrickColor == BrickColor.new("Medium stone grey") then
+            v.BrickColor = BrickColor.new("Dark stone grey")
+            v.Material = "Metal"
+        end
+    end
+end
