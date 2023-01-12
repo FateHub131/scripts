@@ -823,3 +823,18 @@ for i,v in pairs(game:GetService("Workspace")["Prison_Cafeteria"]["Prison_table1
         end
     end
 end
+for i,v in pairs(game:GetService("Workspace")["Prison_Cafeteria"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.BrickColor == BrickColor.new("Flint") then
+            v.BrickColor = BrickColor.new("Medium stone grey")
+        end
+    end
+end
+for i,v in pairs(game:GetService("Workspace")["Prison_Administration"]["furniture_reception"]:GetDescendants()) do
+    if v:IsA("Part") then
+        if v.BrickColor == BrickColor.new("Medium stone grey") then
+            v.BrickColor = BrickColor.new("Dark stone grey")
+            v.Material = "Concrete"
+        end
+    end
+end
