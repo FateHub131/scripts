@@ -1,0 +1,575 @@
+local ValueGui = Instance.new("ScreenGui")
+local OuterFrame = Instance.new("Frame")
+local UICorner_1 = Instance.new("UICorner")
+local InnerFrame = Instance.new("Frame")
+local PlayerName = Instance.new("TextBox")
+local AntiDoorsOn = Instance.new("TextButton")
+local TextCommand1 = Instance.new("TextLabel")
+local AntiDoorsOff = Instance.new("TextButton")
+local AntiCarsOff = Instance.new("TextButton")
+local TextCommand2 = Instance.new("TextLabel")
+local AntiCarsOn = Instance.new("TextButton")
+local AntiGuardsOff = Instance.new("TextButton")
+local TextCommand3 = Instance.new("TextLabel")
+local AntiGuardsOn = Instance.new("TextButton")
+local AntiGuiltyOff = Instance.new("TextButton")
+local TextCommand4 = Instance.new("TextLabel")
+local AntiGuiltyOn = Instance.new("TextButton")
+local FixDoors = Instance.new("TextButton")
+local FixCars = Instance.new("TextButton")
+local FixGuards = Instance.new("TextButton")
+local FixGuards_2 = Instance.new("TextButton")
+local TextCommand5 = Instance.new("TextLabel")
+local AntiPGuardOn = Instance.new("TextButton")
+local AntiPGuardOff = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+
+ValueGui.Name = "ValueGui"
+ValueGui.Parent = game.CoreGui
+ValueGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+OuterFrame.Name = "OuterFrame"
+OuterFrame.Parent = ValueGui
+OuterFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+OuterFrame.BackgroundTransparency = 0.400
+OuterFrame.BorderSizePixel = 0
+OuterFrame.Position = UDim2.new(0.155803859, 0, 0.408641994, 0)
+OuterFrame.Size = UDim2.new(0, 215, 0, 436)
+OuterFrame.Active = true
+OuterFrame.Draggable = true
+
+UICorner_1.Parent = OuterFrame
+
+InnerFrame.Name = "InnerFrame"
+InnerFrame.Parent = OuterFrame
+InnerFrame.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+InnerFrame.BackgroundTransparency = 0.300
+InnerFrame.BorderSizePixel = 0
+InnerFrame.Position = UDim2.new(0.0279069766, 0, 0.0136596262, 0)
+InnerFrame.Size = UDim2.new(0, 203, 0, 424)
+
+PlayerName.Name = "PlayerName"
+PlayerName.Parent = InnerFrame
+PlayerName.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PlayerName.BackgroundTransparency = 0.600
+PlayerName.Position = UDim2.new(0, 0, 0.0716791004, 0)
+PlayerName.Size = UDim2.new(0, 203, 0, 32)
+PlayerName.Font = Enum.Font.SourceSans
+PlayerName.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+PlayerName.PlaceholderText = "Enter Player Name Here"
+PlayerName.Text = ""
+PlayerName.TextColor3 = Color3.fromRGB(255, 255, 255)
+PlayerName.TextSize = 18.000
+
+AntiDoorsOn.Name = "AntiDoorsOn"
+AntiDoorsOn.Parent = InnerFrame
+AntiDoorsOn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiDoorsOn.BackgroundTransparency = 0.600
+AntiDoorsOn.BorderSizePixel = 0
+AntiDoorsOn.Position = UDim2.new(0.807881773, 0, 0.162714958, 0)
+AntiDoorsOn.Size = UDim2.new(0, 32, 0, 32)
+AntiDoorsOn.Visible = false
+AntiDoorsOn.Font = Enum.Font.SourceSans
+AntiDoorsOn.Text = ""
+AntiDoorsOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiDoorsOn.TextSize = 14.000
+AntiDoorsOn.MouseButton1Click:Connect(function()
+	AntiDoorsOn.Visible = false
+	AntiDoorsOff.Visible = true
+
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().doors = false -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().doors do wait()
+			for i,v in pairs(workspace.Doors:GetDescendants()) do
+				if v.Name == "isActive" then
+					if v.Value == false then
+						workspace.Remote.toggleSiren:FireServer({isOn=v})
+					end
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+
+TextCommand1.Name = "TextCommand1"
+TextCommand1.Parent = InnerFrame
+TextCommand1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextCommand1.BackgroundTransparency = 0.600
+TextCommand1.BorderSizePixel = 0
+TextCommand1.Position = UDim2.new(0, 0, 0.162714958, 0)
+TextCommand1.Size = UDim2.new(0, 156, 0, 32)
+TextCommand1.Font = Enum.Font.SourceSans
+TextCommand1.Text = "Disable All Doors"
+TextCommand1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextCommand1.TextSize = 18.000
+
+AntiDoorsOff.Name = "AntiDoorsOff"
+AntiDoorsOff.Parent = InnerFrame
+AntiDoorsOff.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+AntiDoorsOff.BackgroundTransparency = 0.600
+AntiDoorsOff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiDoorsOff.Position = UDim2.new(0.807881773, 0, 0.162714958, 0)
+AntiDoorsOff.Size = UDim2.new(0, 32, 0, 32)
+AntiDoorsOff.Font = Enum.Font.SourceSans
+AntiDoorsOff.Text = ""
+AntiDoorsOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiDoorsOff.TextSize = 14.000
+AntiDoorsOff.MouseButton1Click:Connect(function()
+	AntiDoorsOff.Visible = false
+	AntiDoorsOn.Visible = true
+	
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().doors = true -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().doors do wait()
+			for i,v in pairs(workspace.Doors:GetDescendants()) do
+				if v.Name == "isActive" then
+					if v.Value == false then
+						workspace.Remote.toggleSiren:FireServer({isOn=v})
+					end
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+AntiCarsOff.Name = "AntiCarsOff"
+AntiCarsOff.Parent = InnerFrame
+AntiCarsOff.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+AntiCarsOff.BackgroundTransparency = 0.600
+AntiCarsOff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiCarsOff.Position = UDim2.new(0.807881773, 0, 0.253146172, 0)
+AntiCarsOff.Size = UDim2.new(0, 32, 0, 32)
+AntiCarsOff.Font = Enum.Font.SourceSans
+AntiCarsOff.Text = ""
+AntiCarsOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiCarsOff.TextSize = 14.000
+AntiCarsOff.MouseButton1Click:Connect(function()
+	AntiCarsOff.Visible = false
+	AntiCarsOn.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().cars = true -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().cars do wait()
+			for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons:GetDescendants()) do 
+				if v.Name == "deb" then
+					if v.Value == false then
+						workspace.Remote.toggleSiren:FireServer({isOn=v})
+					end
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+TextCommand2.Name = "TextCommand2"
+TextCommand2.Parent = InnerFrame
+TextCommand2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextCommand2.BackgroundTransparency = 0.600
+TextCommand2.BorderSizePixel = 0
+TextCommand2.Position = UDim2.new(0, 0, 0.253146172, 0)
+TextCommand2.Size = UDim2.new(0, 156, 0, 32)
+TextCommand2.Font = Enum.Font.SourceSans
+TextCommand2.Text = "Disable All Cars"
+TextCommand2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextCommand2.TextSize = 18.000
+
+AntiCarsOn.Name = "AntiCarsOn"
+AntiCarsOn.Parent = InnerFrame
+AntiCarsOn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiCarsOn.BackgroundTransparency = 0.600
+AntiCarsOn.BorderSizePixel = 0
+AntiCarsOn.Position = UDim2.new(0.807881773, 0, 0.253146172, 0)
+AntiCarsOn.Size = UDim2.new(0, 32, 0, 32)
+AntiCarsOn.Visible = false
+AntiCarsOn.Font = Enum.Font.SourceSans
+AntiCarsOn.Text = ""
+AntiCarsOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiCarsOn.TextSize = 14.000
+AntiCarsOn.MouseButton1Click:Connect(function()
+	AntiCarsOn.Visible = false
+	AntiCarsOff.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().cars = false -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().cars do wait()
+			for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons:GetDescendants()) do 
+				if v.Name == "deb" then
+					if v.Value == false then
+						workspace.Remote.toggleSiren:FireServer({isOn=v})
+					end
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+
+AntiGuardsOff.Name = "AntiGuardsOff"
+AntiGuardsOff.Parent = InnerFrame
+AntiGuardsOff.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+AntiGuardsOff.BackgroundTransparency = 0.600
+AntiGuardsOff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuardsOff.Position = UDim2.new(0.807881773, 0, 0.346496105, 0)
+AntiGuardsOff.Size = UDim2.new(0, 32, 0, 32)
+AntiGuardsOff.Font = Enum.Font.SourceSans
+AntiGuardsOff.Text = ""
+AntiGuardsOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuardsOff.TextSize = 14.000
+AntiGuardsOff.MouseButton1Click:Connect(function()
+	AntiGuardsOff.Visible = false
+	AntiGuardsOn.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().guards = true -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().guards do wait()
+			for i,v in pairs(game.Players:GetPlayers()) do
+				if v.Name ~= game.Players.LocalPlayer.Name then
+					if v.Status.isBadGuard.Value == false then
+						local value = v.Status.isBadGuard
+						workspace.Remote.toggleSiren:FireServer({isOn=value})
+					end
+				end
+			end
+		end
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+TextCommand3.Name = "TextCommand3"
+TextCommand3.Parent = InnerFrame
+TextCommand3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextCommand3.BackgroundTransparency = 0.600
+TextCommand3.BorderSizePixel = 0
+TextCommand3.Position = UDim2.new(0, 0, 0.346496105, 0)
+TextCommand3.Size = UDim2.new(0, 156, 0, 32)
+TextCommand3.Font = Enum.Font.SourceSans
+TextCommand3.Text = "Disable All Guards"
+TextCommand3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextCommand3.TextSize = 18.000
+
+AntiGuardsOn.Name = "AntiGuardsOn"
+AntiGuardsOn.Parent = InnerFrame
+AntiGuardsOn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuardsOn.BackgroundTransparency = 0.600
+AntiGuardsOn.BorderSizePixel = 0
+AntiGuardsOn.Position = UDim2.new(0.807881773, 0, 0.346496105, 0)
+AntiGuardsOn.Size = UDim2.new(0, 32, 0, 32)
+AntiGuardsOn.Visible = false
+AntiGuardsOn.Font = Enum.Font.SourceSans
+AntiGuardsOn.Text = ""
+AntiGuardsOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuardsOn.TextSize = 14.000
+AntiGuardsOn.MouseButton1Click:Connect(function()
+	AntiGuardsOn.Visible = false
+	AntiGuardsOff.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().guards = false -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().guards do wait()
+			for i,v in pairs(game.Players:GetPlayers()) do
+				if v.Name ~= game.Players.LocalPlayer.Name then
+					if v.Status.isBadGuard.Value == false then
+						local value = v.Status.isBadGuard
+						workspace.Remote.toggleSiren:FireServer({isOn=value})
+					end
+				end
+			end
+		end
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+AntiGuiltyOff.Name = "AntiGuiltyOff"
+AntiGuiltyOff.Parent = InnerFrame
+AntiGuiltyOff.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+AntiGuiltyOff.BackgroundTransparency = 0.600
+AntiGuiltyOff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuiltyOff.Position = UDim2.new(0.807881773, 0, 0.442139328, 0)
+AntiGuiltyOff.Size = UDim2.new(0, 32, 0, 32)
+AntiGuiltyOff.Font = Enum.Font.SourceSans
+AntiGuiltyOff.Text = ""
+AntiGuiltyOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuiltyOff.TextSize = 14.000
+AntiGuiltyOff.MouseButton1Click:Connect(function()
+	AntiGuiltyOff.Visible = false
+	AntiGuiltyOn.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().guilty = true -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().guilty do wait()
+			for i,v in pairs(game.Players:GetPlayers()) do
+				if v.Status.innocentKills.Value > 0 then
+					local value = v.Status.innocentKills 
+					workspace.Remote.toggleSiren:FireServer({isOn=value})
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+TextCommand4.Name = "TextCommand4"
+TextCommand4.Parent = InnerFrame
+TextCommand4.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextCommand4.BackgroundTransparency = 0.600
+TextCommand4.BorderSizePixel = 0
+TextCommand4.Position = UDim2.new(0, 0, 0.442139328, 0)
+TextCommand4.Size = UDim2.new(0, 156, 0, 32)
+TextCommand4.Font = Enum.Font.SourceSans
+TextCommand4.Text = "Disable All Guilty Kills"
+TextCommand4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextCommand4.TextSize = 18.000
+
+AntiGuiltyOn.Name = "AntiGuiltyOn"
+AntiGuiltyOn.Parent = InnerFrame
+AntiGuiltyOn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuiltyOn.BackgroundTransparency = 0.600
+AntiGuiltyOn.BorderSizePixel = 0
+AntiGuiltyOn.Position = UDim2.new(0.807881773, 0, 0.442139328, 0)
+AntiGuiltyOn.Size = UDim2.new(0, 32, 0, 32)
+AntiGuiltyOn.Visible = false
+AntiGuiltyOn.Font = Enum.Font.SourceSans
+AntiGuiltyOn.Text = ""
+AntiGuiltyOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiGuiltyOn.TextSize = 14.000
+AntiGuiltyOn.MouseButton1Click:Connect(function()
+	AntiGuiltyOn.Visible = false
+	AntiGuiltyOff.Visible = true
+	local RPT = 0 -- The Wait Time Before Each Event
+	local RPS = 50 -- How Fast It Goes
+	local RPD = 0 -- How Fast It Disconnects
+	getgenv().guilty = false -- True makes it Active / False makes it Inactive
+
+	local runService = game:GetService('RunService')
+
+	local Stepped = runService.Stepped:Connect(function(step)
+		local increment = RPS * step
+
+		while getgenv().guilty do wait()
+			for i,v in pairs(game.Players:GetPlayers()) do
+				if v.Status.innocentKills.Value > 0 then
+					local value = v.Status.innocentKills 
+					workspace.Remote.toggleSiren:FireServer({isOn=value})
+				end
+			end
+		end
+
+	end)
+
+	wait() -- How Long Until It Automatically Stops
+	Stepped:Disconnect(RPD)
+end)
+
+FixDoors.Name = "FixDoors"
+FixDoors.Parent = InnerFrame
+FixDoors.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FixDoors.BackgroundTransparency = 0.600
+FixDoors.Position = UDim2.new(0, 0, 0.625024199, 0)
+FixDoors.Size = UDim2.new(0, 203, 0, 32)
+FixDoors.Font = Enum.Font.SourceSans
+FixDoors.Text = "Fix All Doors"
+FixDoors.TextColor3 = Color3.fromRGB(255, 255, 255)
+FixDoors.TextSize = 18.000
+FixDoors.MouseButton1Click:Connect(function()
+	for i,v in pairs(workspace.Doors:GetDescendants()) do
+		if v.Name == "isActive" then
+			if v.Value == true then
+				workspace.Remote.toggleSiren:FireServer({isOn=v})
+			end
+		end
+	end
+end)
+
+FixCars.Name = "FixCars"
+FixCars.Parent = InnerFrame
+FixCars.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FixCars.BackgroundTransparency = 0.600
+FixCars.Position = UDim2.new(0, 0, 0.715590239, 0)
+FixCars.Size = UDim2.new(0, 203, 0, 32)
+FixCars.Font = Enum.Font.SourceSans
+FixCars.Text = "Fix All Cars"
+FixCars.TextColor3 = Color3.fromRGB(255, 255, 255)
+FixCars.TextSize = 18.000
+FixCars.MouseButton1Click:Connect(function()
+	for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons:GetDescendants()) do 
+		if v.Name == "deb" then
+			if v.Value == true then
+				workspace.Remote.toggleSiren:FireServer({isOn=v})
+			end
+		end
+	end
+end)
+
+FixGuards.Name = "FixGuards"
+FixGuards.Parent = InnerFrame
+FixGuards.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FixGuards.BackgroundTransparency = 0.600
+FixGuards.Position = UDim2.new(0, 0, 0.806156218, 0)
+FixGuards.Size = UDim2.new(0, 203, 0, 32)
+FixGuards.Font = Enum.Font.SourceSans
+FixGuards.Text = "Fix All Guards"
+FixGuards.TextColor3 = Color3.fromRGB(255, 255, 255)
+FixGuards.TextSize = 18.000
+FixGuards.MouseButton1Click:Connect(function()
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Status.isBadGuard.Value == true then
+			local value = v.Status.isBadGuard
+			workspace.Remote.toggleSiren:FireServer({isOn=value})
+		end
+	end
+end)
+
+FixGuards_2.Name = "FixGuards"
+FixGuards_2.Parent = InnerFrame
+FixGuards_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FixGuards_2.BackgroundTransparency = 0.600
+FixGuards_2.Position = UDim2.new(0, 0, 0.896516681, 0)
+FixGuards_2.Size = UDim2.new(0, 203, 0, 32)
+FixGuards_2.Font = Enum.Font.SourceSans
+FixGuards_2.Text = "Fix Player Guard"
+FixGuards_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+FixGuards_2.TextSize = 18.000
+FixGuards_2.MouseButton1Click:Connect(function()
+
+end)
+
+TextCommand5.Name = "TextCommand5"
+TextCommand5.Parent = InnerFrame
+TextCommand5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextCommand5.BackgroundTransparency = 0.600
+TextCommand5.BorderSizePixel = 0
+TextCommand5.Position = UDim2.new(0, 0, 0.533210695, 0)
+TextCommand5.Size = UDim2.new(0, 156, 0, 32)
+TextCommand5.Font = Enum.Font.SourceSans
+TextCommand5.Text = "Disable Player Guard"
+TextCommand5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextCommand5.TextSize = 18.000
+
+AntiPGuardOn.Name = "AntiPGuardOn"
+AntiPGuardOn.Parent = InnerFrame
+AntiPGuardOn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiPGuardOn.BackgroundTransparency = 0.600
+AntiPGuardOn.BorderSizePixel = 0
+AntiPGuardOn.Position = UDim2.new(0.807881773, 0, 0.533210695, 0)
+AntiPGuardOn.Size = UDim2.new(0, 32, 0, 32)
+AntiPGuardOn.Visible = false
+AntiPGuardOn.Font = Enum.Font.SourceSans
+AntiPGuardOn.Text = ""
+AntiPGuardOn.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiPGuardOn.TextSize = 14.000
+AntiPGuardOn.MouseButton1Click:Connect(function()
+	AntiPGuardOn.Visible = false
+	AntiPGuardOff.Visible = true
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Name ~= PlayerName.Text then continue end
+		local value = v.Status.isBadGuard
+		workspace.Remote.toggleSiren:FireServer({isOn=value})
+	end
+end)
+
+AntiPGuardOff.Name = "AntiPGuardOff"
+AntiPGuardOff.Parent = InnerFrame
+AntiPGuardOff.BackgroundColor3 = Color3.fromRGB(85, 85, 85)
+AntiPGuardOff.BackgroundTransparency = 0.600
+AntiPGuardOff.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AntiPGuardOff.Position = UDim2.new(0.807881773, 0, 0.533210695, 0)
+AntiPGuardOff.Size = UDim2.new(0, 32, 0, 32)
+AntiPGuardOff.Font = Enum.Font.SourceSans
+AntiPGuardOff.Text = ""
+AntiPGuardOff.TextColor3 = Color3.fromRGB(0, 0, 0)
+AntiPGuardOff.TextSize = 14.000
+AntiPGuardOff.MouseButton1Click:Connect(function()
+	AntiPGuardOff.Visible = false
+	AntiPGuardOn.Visible = true
+	for i,v in pairs(game.Players:GetPlayers()) do
+		if v.Name ~= PlayerName.Text then continue end
+		local value = v.Status.isBadGuard
+		workspace.Remote.toggleSiren:FireServer({isOn=value})
+	end
+end)
+
+Title.Name = "Title"
+Title.Parent = OuterFrame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(0.0279069766, 0, 0.0117829721, 0)
+Title.Size = UDim2.new(0, 203, 0, 32)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "Anti Gui"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 18.000
