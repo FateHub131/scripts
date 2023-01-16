@@ -3277,88 +3277,8 @@ do
 
             local values = worldtop.SideTab("Values", 1000).Section("Value Editor")
 
-            values.Toggle("Anti Doors", togs.doors, function(a)
-                togs.doors = a
-                    if a then
-                        for i,v in pairs(workspace.Doors:GetDescendants()) do
-                            if v.Name == "isActive" then
-                                if v.Value == false then
-                                    workspace.Remote.toggleSiren:FireServer({isOn=v})
-                                end
-                            end
-                        end
-                    end
-                    if not a then
-                        for i,v in pairs(workspace.Doors:GetDescendants()) do
-                            if v.Name == "isActive" then
-                                if v.Value == true then
-                                    workspace.Remote.toggleSiren:FireServer({isOn=v})
-                                end
-                            end
-                        end
-                    end
-                end)
-
-                values.Toggle("Anti Car Spawn", togs.carspawn, function(a)
-                    togs.carspawn = a
-                        if a then
-                            for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons:GetDescendants()) do 
-                                if v.Name == "deb" then
-                                    if v.Value == false then
-                                        workspace.Remote.toggleSiren:FireServer({isOn=v})
-                                    end
-                                end
-                            end                            
-                        end
-                        if not a then
-                            for i,v in pairs(game:GetService("Workspace")["Prison_ITEMS"].buttons:GetDescendants()) do 
-                                if v.Name == "deb" then
-                                    if v.Value == true then
-                                        workspace.Remote.toggleSiren:FireServer({isOn=v})
-                                    end
-                                end
-                            end                            
-                        end
-                    end)
-
-                    values.Toggle("Anti Guards", nil, function(value)
-                        if not getgenv().aguards then
-                            getgenv().aguards = true
-                    
-                            while getgenv().aguards == true do wait()
-                                for i,v in pairs(game.Players:GetPlayers()) do
-                                    if v.Status.isBadGuard.Value == false then
-                                        local value = v.Status.isBadGuard
-                                        workspace.Remote.toggleSiren:FireServer({isOn=value})
-                                    end
-                                end
-                            end
-                        elseif _G.god then
-                            getgenv().aguards = not getgenv().aguards
-                            getgenv().aguards = false
-                            wait()
-                            for i,v in pairs(game.Players:GetPlayers()) do
-                                if v.Status.isBadGuard.Value == true then
-                                    local value = v.Status.isBadGuard
-                                    workspace.Remote.toggleSiren:FireServer({isOn=value})
-                                end
-                            end
-                        end
-                    end)
-
-
-                values.Button("Fix Doors", function()
-                    for i,v in pairs(workspace.Doors:GetDescendants()) do
-                        if v.Name == "isActive" then
-                            if v.Value == true then
-                                workspace.Remote.toggleSiren:FireServer({isOn=v})
-                            end
-                        end
-                    end
-                end)
-
                 values.Button("Value Editor Gui", function()
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/FateHub131/scripts/main/test"))()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/FateHub131/scripts/main/AntiGui"))()
                 end)
 
                 local maps = worldtop.SideTab("Maps", 1000).Section("Map Changer")
