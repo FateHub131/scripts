@@ -1,1 +1,311 @@
 
+local ScreenGui = Instance.new("ScreenGui")
+local mainframe = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local vestbox = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local vestb = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local speedbox = Instance.new("TextBox")
+local UICorner_5 = Instance.new("UICorner")
+local speedb = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local Frame_3 = Instance.new("Frame")
+local container = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local nomeshonb = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local nomeshoffb = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local startb = Instance.new("TextButton")
+local UICorner_10 = Instance.new("UICorner")
+local statusb = Instance.new("TextLabel")
+local UICorner_11 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+mainframe.Name = "mainframe"
+mainframe.Parent = ScreenGui
+mainframe.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+mainframe.Position = UDim2.new(0.292490125, 0, 0.251247913, 0)
+mainframe.Size = UDim2.new(0, 189, 0, 220)
+mainframe.Active = true
+mainframe.Draggable = true
+
+--
+for i,v in pairs(game.Workspace:GetDescendants()) do 
+	if v.Name == "vestfolder1"then 
+		v:Destroy()
+	end
+end
+wait(.5)
+local vestfolder = Instance.new("Folder")
+vestfolder.Parent = game.Players.LocalPlayer.Character
+vestfolder.Name = "vestfolder1"
+--
+
+TextLabel.Parent = mainframe
+TextLabel.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.BorderColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.Size = UDim2.new(0, 189, 0, 24)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Vest Dropper"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+
+Frame.Parent = TextLabel
+Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0, 0, 0.754482806, 0)
+Frame.Size = UDim2.new(0, 189, 0, 7)
+
+UICorner.Parent = TextLabel
+
+UICorner_2.Parent = mainframe
+
+vestbox.Name = "vestbox"
+vestbox.Parent = mainframe
+vestbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+vestbox.ClipsDescendants = true
+vestbox.Position = UDim2.new(0.313211948, 0, 0.168181807, 0)
+vestbox.Size = UDim2.new(0, 117, 0, 37)
+vestbox.Font = Enum.Font.SourceSans
+vestbox.PlaceholderText = "Vest amount"
+vestbox.Text = ""
+vestbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+vestbox.TextSize = 14.000
+vestbox.TextWrapped = true
+
+UICorner_3.Parent = vestbox
+
+vestb.Name = "vestb"
+vestb.Parent = mainframe
+vestb.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+vestb.Position = UDim2.new(0.0631476492, 0, 0.168181807, 0)
+vestb.Size = UDim2.new(0, 61, 0, 37)
+vestb.ZIndex = 2
+vestb.Font = Enum.Font.SourceSans
+vestb.Text = "Add Vest"
+vestb.TextColor3 = Color3.fromRGB(255, 255, 255)
+vestb.TextSize = 14.000
+
+UICorner_4.Parent = vestb
+
+Frame_2.Parent = vestb
+Frame_2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame_2.BorderSizePixel = 0
+Frame_2.Position = UDim2.new(0.865297914, 0, -0.0119164735, 0)
+Frame_2.Size = UDim2.new(0, 8, 0, 37)
+
+speedbox.Name = "speedbox"
+speedbox.Parent = mainframe
+speedbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+speedbox.ClipsDescendants = true
+speedbox.Position = UDim2.new(0.313211948, 0, 0.386363626, 0)
+speedbox.Size = UDim2.new(0, 117, 0, 37)
+speedbox.Font = Enum.Font.SourceSans
+speedbox.PlaceholderText = "0 = unlimited"
+speedbox.Text = ""
+speedbox.TextColor3 = Color3.fromRGB(255, 255, 255)
+speedbox.TextSize = 14.000
+speedbox.TextWrapped = true
+
+UICorner_5.Parent = speedbox
+
+speedb.Name = "speedb"
+speedb.Parent = mainframe
+speedb.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+speedb.Position = UDim2.new(0.0631476492, 0, 0.386363626, 0)
+speedb.Size = UDim2.new(0, 61, 0, 37)
+speedb.ZIndex = 2
+speedb.Font = Enum.Font.SourceSans
+speedb.Text = "Set Speed"
+speedb.TextColor3 = Color3.fromRGB(255, 255, 255)
+speedb.TextSize = 14.000
+
+UICorner_6.Parent = speedb
+
+Frame_3.Parent = speedb
+Frame_3.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0.865297914, 0, -0.0119164735, 0)
+Frame_3.Size = UDim2.new(0, 8, 0, 37)
+
+container.Name = "container"
+container.Parent = mainframe
+container.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+container.Position = UDim2.new(0.0582010597, 0, 0.581818163, 0)
+container.Size = UDim2.new(0, 165, 0, 83)
+
+UICorner_7.Parent = container
+
+TextLabel_2.Parent = container
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0, 0, 0.0240963846, 0)
+TextLabel_2.Size = UDim2.new(0, 82, 0, 33)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Remove Mesh"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+
+nomeshonb.Name = "nomeshonb"
+nomeshonb.Parent = container
+nomeshonb.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+nomeshonb.Position = UDim2.new(0.800000072, 0, 0.0480000004, 3)
+nomeshonb.Size = UDim2.new(0, 24, 0, 24)
+nomeshonb.Font = Enum.Font.SourceSans
+nomeshonb.Text = ""
+nomeshonb.TextColor3 = Color3.fromRGB(0, 0, 0)
+nomeshonb.TextSize = 14.000
+
+UICorner_8.Parent = nomeshonb
+
+nomeshoffb.Name = "nomeshoffb"
+nomeshoffb.Parent = container
+nomeshoffb.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+nomeshoffb.Position = UDim2.new(0.800000072, 0, 0.0480000004, 3)
+nomeshoffb.Size = UDim2.new(0, 24, 0, 24)
+nomeshoffb.Font = Enum.Font.SourceSans
+nomeshoffb.Text = ""
+nomeshoffb.TextColor3 = Color3.fromRGB(0, 0, 0)
+nomeshoffb.TextSize = 14.000
+
+UICorner_9.Parent = nomeshoffb
+
+startb.Name = "startb"
+startb.Parent = container
+startb.BackgroundColor3 = Color3.fromRGB(0, 255, 127)
+startb.Position = UDim2.new(0.521212101, 0, 0.493975908, 0)
+startb.Size = UDim2.new(0, 70, 0, 36)
+startb.Font = Enum.Font.SourceSans
+startb.Text = "Start"
+startb.TextColor3 = Color3.fromRGB(0, 0, 0)
+startb.TextSize = 14.000
+
+UICorner_10.Parent = startb
+
+statusb.Name = "statusb"
+statusb.Parent = container
+statusb.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+statusb.Position = UDim2.new(0.0729999989, -4, 0.493975878, 0)
+statusb.Size = UDim2.new(0, 70, 0, 36)
+statusb.Font = Enum.Font.SourceSans
+statusb.Text = "0"
+statusb.TextColor3 = Color3.fromRGB(255, 255, 255)
+statusb.TextSize = 14.000
+
+UICorner_11.Parent = statusb
+--
+
+local mesh = true
+local vestvalue = Instance.new("NumberValue")
+vestvalue.Parent = game.Lighting
+vestvalue.Name = "vestvalue"
+vestvalue.Value = "0"
+local speedvalue = 100
+local RunService = game:GetService("RunService")
+
+
+
+
+vestb.MouseButton1Down:Connect(function()
+	local count69 = 0
+	if vestbox.Text == "" then
+		vestvalue.Value = 100
+	else
+		vestvalue.Value = vestbox.Text
+	end
+	print(vestvalue)
+	local event = RunService.RenderStepped:Connect(function(step)
+		count69 = count69 + 1
+		local args = {[1] = workspace.Prison_ITEMS.clothes:FindFirstChild("Riot Police").ITEMPICKUP}workspace.Remote.ItemHandler:InvokeServer(unpack(args))
+
+
+	end)
+
+	local event2 = RunService.RenderStepped:Connect(function(step)
+		if count69 == vestvalue.Value then
+			event:Disconnect()
+
+		end
+	end)
+
+
+end)
+
+
+
+
+
+
+startb.MouseButton1Down:Connect(function()
+	if speedbox.Text == "" then
+		speedvalue = 0
+	else 
+		speedvalue = speedbox.Text
+	end
+	local Array = {};
+	for _,v in ipairs(game.Players.LocalPlayer.Character.vestfolder1:GetDescendants()) do
+		if v.Name == "vest" then
+			table.insert(Array,v); 
+		else
+
+		end
+	end
+	for index = 1, #Array do
+		wait(speedbox.Text)
+		if mesh == true then
+			Array[index].Weld:Destroy()
+		else
+			Array[index].Mesh:Destroy()
+			Array[index].Weld:Destroy()
+		end
+	end
+end)
+
+
+
+nomeshoffb.MouseButton1Down:Connect(function()
+	nomeshoffb.Visible = false
+	nomeshonb.Visible = true
+	mesh = false
+end)
+nomeshonb.MouseButton1Down:Connect(function()
+	nomeshoffb.Visible = true
+	nomeshonb.Visible = false
+	mesh = true
+end)
+
+
+
+local RunService = game:GetService("RunService")
+
+RunService.RenderStepped:Connect(function(step)
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+		if v.Name == "vest" then
+			v.Parent = vestfolder
+		end
+	end
+	statusb.Text =  #vestfolder:GetChildren()
+end)
+
+
+game:GetService('Players').PlayerAdded:Connect(function(player)
+	player.CharacterAdded:Connect(function(character)
+		character:WaitForChild("Humanoid").Died:Connect(function()
+		wait(4)
+			local vestfolder = Instance.new("Folder")
+			vestfolder.Parent = game.Players.LocalPlayer.Character
+				vestfolder.Name = "vestfolder1"
+				
+		end)
+	end)
+end)
