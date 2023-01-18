@@ -2490,7 +2490,7 @@ task.spawn(LoaderUpdate)
 
 do
     local ui =           loadstring(syn.request({Url = "https://raw.githubusercontent.com/GFXTI/d/main/PianoUI.lua"}).Body)()
-    local lib =          ui.new("Athena Client")
+    local lib =          ui.new("Athena")
 
     -- Combat window
     do
