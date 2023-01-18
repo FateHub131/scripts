@@ -74,15 +74,16 @@ togs = {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     Weld =      sv.ReplicatedStorage.weldEvent
 },
 {
-    ["Nexus"] =     CFrame.new(953.729492, 101.462059, 2357.59204, -0.0105626266, 0.00707700523, 0.999919176, -9.5477144e-06, 0.999974966, -0.00707750069, -0.99994421, -8.43010639e-05, -0.0105622951),
-    ["Cells"] =     CFrame.new(916.91394, 101.473854, 2456.18604, -0.999888539, 5.29824283e-05, -0.0149285085, -1.79755625e-05, 0.999988735, 0.00475434074, 0.0149285914, 0.00475407997, -0.999877274),
-    ["Armory"] =    CFrame.new(837.355896, 101.472763, 2266.63647, 0.999749184, -8.90113733e-05, 0.0223938301, -1.8733137e-05, 0.999988437, 0.00481109042, -0.0223939978, -0.00481030252, 0.99973762),
-    ["Wall"] =      CFrame.new(823.160522, 131.507324, 2569.33813, 1, 1.38536689e-06, -5.78099862e-05, -1.36256517e-06, 0.999999821, 0.000549363845, 5.78106847e-05, -0.000549363845, 0.999999821),
-    ["Yard"] =      CFrame.new(736.615173, 99.6887665, 2512.97119, 0.999997199, -3.40389306e-06, -0.00238491991, -4.46612347e-07, 0.999998689, -0.00161580928, 0.00238492223, 0.00161580567, 0.999995887),
-    ["Sky wall"] =  CFrame.new(823.119202, 397.705841, 2672.00366, 0.999975801, 2.95520476e-05, 0.00695856567, 6.81028922e-08, 0.99999094, -0.0042566075, -0.00695862854, 0.00425650505, 0.999966741),
-    ["Front"] =     CFrame.new(504.223053, 126.521599, 2421.09814, -0.00433305278, -0.0047102836, 0.999979556, -1.8185101e-05, 0.999988914, 0.00471024914, -0.999990642, 2.21143955e-06, -0.00433309004),
-    ["Crim base"] = CFrame.new(-860.264526, 95.9438858, 2085.03564, 0.0224340688, -0.00536062894, -0.999733925, -3.02877697e-06, 0.999985635, -0.00536204642, 0.99974829, 0.000123324076, 0.0224337298),
-    ["Crim pad"] =  CFrame.new(-977.83075, 110.823158, 2053.60034, -0.00541115459, -0.000807852659, -0.99998498, -1.53944185e-07, 0.999999642, -0.000807863718, 0.999985337, -4.22384346e-06, -0.00541115273)
+    ["Nexus"] =     CFrame.new(953, 101, 2357),
+    ["Cells"] =     CFrame.new(916, 101, 2456),
+    ["Armory"] =    CFrame.new(837, 101, 2266),
+    ["Tower"] =      CFrame.new(823, 131, 2569),
+    ["Yard"] =      CFrame.new(736, 99, 2512),
+    ["Sky wall"] =  CFrame.new(823, 397, 2672),
+    ["Front"] =     CFrame.new(504, 126, 2421),
+    ["Crim base"] = CFrame.new(-860, 95, 2085),
+    ["Crim pad"] =  CFrame.new(-977, 110., 2053),
+    ["Cafeteria"] =  CFrame.new(891, 99, 2288)
 }, 
 { -- yeah it should be "settings" but you are a little ni
     GunMods = {
@@ -166,13 +167,9 @@ togs = {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
     };
     Whitelist = { -- sum friends
                             "MrGFXTI",
-                            "Shadows_Overlord",
                             "PpScoped",
-                            "romefalls",
-                            "Darkgirlsilence",
                             "FattyJudge",
-                            "Thomas_Blx",
-                            "TheSon99"
+                            "Thomas_Blx"
     };
     Admin = {
         Prefix =            "-";
@@ -1395,7 +1392,7 @@ local function Crim(plr)
         task.defer(pcall, firetouchinterest, pad, plr.Character.PrimaryPart, ffalse)
     end
 
-    task.wait(.1)
+    task.wait(.01)
 
     togs.Noclip = oldnt
     Respawn(nil, oldpos)
@@ -2304,6 +2301,10 @@ do
                     Log(v, "Possible gun spawn")
                 end
 
+                if v.Character.HumanoidRootPart.Position.Y > 1000 then
+                    Log(v, "Possible Invis")
+                end
+
                 if v.Character and v.Character:FindFirstChild("HumanoidRootPart") and not v.Character:FindFirstChild("Torso") then
                     Log(v, "Invisible fling")
                 end
@@ -2489,7 +2490,7 @@ task.spawn(LoaderUpdate)
 
 do
     local ui =           loadstring(syn.request({Url = "https://raw.githubusercontent.com/GFXTI/d/main/PianoUI.lua"}).Body)()
-    local lib =          ui.new("Piano (Athena)")
+    local lib =          ui.new("Athena Client")
 
     -- Combat window
     do
@@ -2918,7 +2919,7 @@ do
             Note("Set join script to clipboard")
         end)
     end
-
+    
     -- World Window
     do
         local worldtop = lib.WindowTab("World")
@@ -3283,12 +3284,181 @@ do
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/FateHub131/scripts/main/AntiGui"))()
                 end)
 
+                values.Button("Vest Gui", function()
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/FateHub131/scripts/main/VestGui"))()
+                end)
+
                 local maps = worldtop.SideTab("Maps", 1000).Section("Map Changer")
 
                 maps.Button("Realism", function()
                     loadstring(game:HttpGet("https://raw.githubusercontent.com/FateHub131/scripts/main/test"))()
                 end)
 
+            -- Server Options
+            local server = worldtop.SideTab("Server", 1000).Section("Server Options")
+
+            server.Button("Break All Toilets", function()
+                for i = 1,60 do
+                    for i,v in pairs(workspace.Prison_Cellblock.Cells_A:GetDescendants()) do
+                        if v:IsA("Model") then
+                            if v.Name == "Toilet" then
+                                local a = v
+                                local b = game:GetService("Players").LocalPlayer.Backpack.Hammer
+                                game:GetService("ReplicatedStorage").meleeEvent:FireServer(a, b)
+                            end
+                        end
+                    end
+                    for i,v in pairs(workspace.Prison_Cellblock.Cells_B:GetDescendants()) do
+                        if v:IsA("Model") then
+                            if v.Name == "Toilet" then
+                                local a = v
+                                local b = game:GetService("Players").LocalPlayer.Backpack.Hammer
+                                game:GetService("ReplicatedStorage").meleeEvent:FireServer(a, b)
+                            end
+                        end
+                    end
+                end
+            end)    
+
+            server.Button("Break All Tools", function()
+                for i=1,1000 do
+                    for i,v in pairs(game.Players:GetPlayers()) do
+                        for i,x in pairs(v.Backpack:GetChildren()) do
+                            if x:IsA("Tool") then
+                                game:GetService("ReplicatedStorage").weldEvent:FireServer(x)
+                            end
+                        end
+                    end
+                end
+            end)
+
+            -- Tool Options
+            local tooloptions = worldtop.SideTab("Tools", 1000).Section("Remove Tool Welds")
+
+            tooloptions.Button("Hammer", function()
+                workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single.Hammer.ITEMPICKUP)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.Name == "Hammer" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+                wait(.2)
+                for i,v in pairs(game.Players.LocalPlayer.Character.Hammer.Handle:GetChildren()) do
+                    if v:IsA("Weld") then
+                        v:Destroy()
+                    end
+                end
+                wait(.3)
+                saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                workspace.Remote.loadchar:InvokeServer()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+            end)
+        
+            tooloptions.Button("Crude Knife", function()
+                workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.Name == "Crude Knife" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+                wait(.2)
+                for i,v in pairs(game.Players.LocalPlayer.Character["Crude Knife"].Handle:GetChildren()) do
+                    if v:IsA("Weld") then
+                        v:Destroy()
+                    end
+                end
+                wait(.3)
+                saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                workspace.Remote.loadchar:InvokeServer()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+            end)
+        
+            tooloptions.Button("M9", function()
+                workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.Name == "M9" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+                wait(.2)
+                for i,v in pairs(game.Players.LocalPlayer.Character["M9"].Handle:GetChildren()) do
+                    if v:IsA("Weld") then
+                        v:Destroy()
+                    end
+                end
+                wait(.3)
+                saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                workspace.Remote.loadchar:InvokeServer()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+            end)
+        
+            tooloptions.Button("Remington 870", function()
+                workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.Name == "Remington 870" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+                wait(.2)
+                for i,v in pairs(game.Players.LocalPlayer.Character["Remington 870"].Handle:GetChildren()) do
+                    if v:IsA("Weld") then
+                        v:Destroy()
+                    end
+                end
+                wait(.3)
+                saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                workspace.Remote.loadchar:InvokeServer()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+            end)
+
+        
+            tooloptions.Button("AK-47", function()
+                workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+                wait()
+                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                    if v.Name == "AK-47" then
+                        v.Parent = game.Players.LocalPlayer.Character
+                    end
+                end
+                wait(.2)
+                for i,v in pairs(game.Players.LocalPlayer.Character["AK-47"].Handle:GetChildren()) do
+                    if v:IsA("Weld") then
+                        v:Destroy()
+                    end
+                end
+                wait(.3)
+                saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                workspace.Remote.loadchar:InvokeServer()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+            end)
+        
+        
+            tooloptions.Button("M4A1", function()
+                if game:GetService("MarketplaceService"):UserOwnsGamePassAsync(tonumber((game:GetService("Players").LocalPlayer.CharacterAppearance):split('=')[#((game:GetService("Players").LocalPlayer.CharacterAppearance):split('='))]), 96651) then
+                    workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+                    wait()
+                    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+                        if v.Name == "M4A1" then
+                            v.Parent = game.Players.LocalPlayer.Character
+                        end
+                    end
+                    wait(.2)
+                    for i,v in pairs(game.Players.LocalPlayer.Character["M4A1"].Handle:GetChildren()) do
+                        if v:IsA("Weld") then
+                            v:Destroy()
+                        end
+                    end
+                    wait(.3)
+                    saved = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    workspace.Remote.loadchar:InvokeServer()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = saved
+                end
+            end)
+            
             -- Player Buttons
             do
                 misc.Label("Buttons")
@@ -4461,3 +4631,6 @@ AdminListInit()
 
 task.spawn(LoaderUpdate)
 Note("Press Right Control to open")
+task.wait()
+game:GetService("Players").LocalPlayer.PlayerGui.Home.intro.Visible = false 
+game:GetService("Players").LocalPlayer.PlayerGui.Home.fadeFrame.Visible = false 
